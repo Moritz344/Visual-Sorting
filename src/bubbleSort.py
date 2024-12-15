@@ -54,8 +54,10 @@ def bubble_sort(arr):
     running: bool = True
 
     for i in range(n):
+        swapped: bool = False
         for j in range(0,n-i-1):
             if arr[j] > arr[j+1]:
+                swapped: bool = True
                 arr[j],arr[j+1] = arr[j+1],arr[j]
                 screen.fill("black")
                 debug_info()
@@ -75,6 +77,9 @@ def bubble_sort(arr):
                         running: bool = False
             if not running:
                 sys.exit(0)
+
+        if not swapped:
+            break
 
         rounds += 1
     #print("everything is sorted!")
